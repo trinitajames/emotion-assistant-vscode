@@ -67,10 +67,6 @@ The system fuses a facial-emotion-recognition (FER) model with a text-emotion-re
 
 ![Face pipeline and landmarks](assets/face_pipeline_landmarks.png)
 
-**Inside the CNN** — two conv/pool blocks extract feature maps before the fully-connected layers classify the emotion:
-
-![CNN layer-by-layer view](assets/cnn_layers.png)
-
 **Text pipeline** — free-text input goes through a standard NLP preprocessing flow before scoring:
 
 ![Text preprocessing pipeline](assets/nlp_text_pipeline.jpg)
@@ -98,10 +94,6 @@ Overall performance on the held-out test set:
 Per-class precision/recall/F1:
 
 ![Per-class metrics table](assets/per_class_metrics.png)
-
-Confusion matrix for the emotion recognition CNN:
-
-![Confusion matrix](assets/confusion_matrix.png)
 
 ## Configuration
 
