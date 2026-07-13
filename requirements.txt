@@ -1,0 +1,12 @@
+torch==2.8.0
+torchvision==0.23.0
+torchaudio==2.8.0
+opencv-python
+gradio>=4.44.0
+nltk
+numpy
+pandas
+tqdm
+matplotlib
+scikit-learn
+protobuf<5
