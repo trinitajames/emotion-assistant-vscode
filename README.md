@@ -21,6 +21,7 @@ emotion_assistant_vscode/
 ├─ train_stub.py      # Minimal training script (replace with real training)
 ├─ requirements.txt
 ├─ weights/           # Place emotion_cnn.pt here
+├─ assets/            # README images (architecture, demo screenshots, results)
 └─ .vscode/
    ├─ settings.json
    └─ extensions.json
@@ -55,6 +56,52 @@ python app.py
 ```
 
 Open the printed URL (usually `http://127.0.0.1:7860`) and allow camera access if prompted.
+
+## Architecture
+
+The system fuses a facial-emotion-recognition (FER) model with a text-emotion-recognition (TER) model before generating a response:
+
+![System architecture](assets/architecture_overview.png)
+
+**Facial pipeline** — a face is detected, background-removed, and passed through the CNN to produce a predicted emotion:
+
+![Face pipeline and landmarks](assets/face_pipeline_landmarks.png)
+
+**Inside the CNN** — two conv/pool blocks extract feature maps before the fully-connected layers classify the emotion:
+
+![CNN layer-by-layer view](assets/cnn_layers.png)
+
+**Text pipeline** — free-text input goes through a standard NLP preprocessing flow before scoring:
+
+![Text preprocessing pipeline](assets/nlp_text_pipeline.jpg)
+
+## Screenshots
+
+Sample input image and the app's detected emotion + reply:
+
+![Sample input image](assets/demo_sample_input.jpg)
+
+![Demo: happy detected](assets/demo_happy_output.png)
+
+Full app view with webcam input:
+
+![Demo: surprise detected, full view](assets/demo_surprise_full.png)
+
+![Demo: surprise detected, close-up](assets/demo_surprise_closeup.png)
+
+## Evaluation Results
+
+Overall performance on the held-out test set:
+
+![Performance metrics](assets/performance_metrics.png)
+
+Per-class precision/recall/F1:
+
+![Per-class metrics table](assets/per_class_metrics.png)
+
+Confusion matrix for the emotion recognition CNN:
+
+![Confusion matrix](assets/confusion_matrix.png)
 
 ## Configuration
 
